@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.carousel-wrapper{
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel{
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.carousel__photo{
+    opacity: 0;
+    position: absolute;
+    top: 0%;
+    width:24%;
+    object-fit: cover;
+    height: 100%;
+    margin:auto;
+    padding: 1rem 4rem;
+    z-index: 100;
+    transition: transform .5s, opacity .5s,z-index .5s;
+    -webkit-transition: transform .5s, opacity .5s,z-index .5s;
+    -moz-transition: transform .5s, opacity .5s,z-index .5s;
+    -ms-transition: transform .5s, opacity .5s,z-index .5s;
+    -o-transition: transform .5s, opacity .5s,z-index .5s;
+
+}
+
+.carousel__photo.initial, .carousel__photo.active{
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.carousel__photo.prev,.carousel__photo.next{
+    z-index: 800;
+}
+
+.carousel__photo.prev{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+}
+
+.carousel__photo.next{
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+}
+
+.carousel__button--prev,
+.carousel__button--next{
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    cursor: pointer;
+    z-index: 1001;
+    border: 1px solid black;
+}
+
+.carousel__button--prev{
+    left: 0;
+}
+.carousel__button--next{
+    right: 0;
+}
+
+.carousel__button--prev::after,
+.carousel__button--next::after{
+    content: " ";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform:translate(-50%,-50%) rotate(135deg);
+    -webkit-transform:translate(-50%,-50%) rotate(135deg);
+    -moz-transform:translate(-50%,-50%) rotate(135deg);
+    -ms-transform:translate(-50%,-50%) rotate(135deg);
+    -o-transform:translate(-50%,-50%) rotate(135deg);
+}
+
+.carousel__button--next::after{
+   left: 47%;
+   transform: translate(-50%,-50%) rotate(-45deg);
+   -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+   -moz-transform: translate(-50%,-50%) rotate(-45deg);
+   -ms-transform: translate(-50%,-50%) rotate(-45deg);
+   -o-transform: translate(-50%,-50%) rotate(-45deg);
+}
