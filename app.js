@@ -29,39 +29,37 @@
 
         function setEvents(){
             const next = document.querySelector('#next');
-            const prev = document.querySelector('#prev'); 
-            
+            const prev = document.querySelector('#prev');
+
+            prev.style.display ="none";
+
             next.addEventListener('click', moveNext);
             prev.addEventListener('click',movePrev);
         };
 
 
-        function moveNext(){
+        function moveNext(event){
 
             if(!moving){
-
-                if(slide === (totalItem - 5)){
-                    slide = 0;   
-                }else{
-                    slide++;
-                    console.log(slide);
-                }
-                moveCarosel(slide);
+                    slide = 1;
+                    moveCarosel(slide);
+                    hideAndShowbtn(prev,next);
             }
               
         }
 
 
-        function movePrev(){
-
+        function movePrev(event){
             if(!moving){
-                
-                    slide--;
-                    console.log(slide);
-               
-
-                moveCarosel(slide);
+                    slide = 0;
+                    moveCarosel(slide);
+                    hideAndShowbtn(next,prev)
             }
+        }
+
+        function hideAndShowbtn(activebtn,noactivebtn){
+            activebtn.style.display = "block";
+            noactivebtn.style.display = "none"
         }
 
         function  disableMoves(){
@@ -72,8 +70,6 @@
       
 
         function moveCarosel(slide){
-
-            
 
             if(!moving){
 
@@ -112,6 +108,7 @@
                 
 
             }
+
         }
 
 
